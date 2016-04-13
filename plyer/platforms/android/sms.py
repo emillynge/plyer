@@ -24,14 +24,12 @@ class AndroidSms(Sms):
     def _edit(self, **kwargs):
         intent = Intent(Intent.ACTION_VIEW)
         intent.setType("vnd.android-dir/mms-sms")
-        if 'recipient' in kwargs:
-            intent.putExtra("address", str(kwargs.get('recipient')))
-
-        if 'message' in kwargs:
-            intent.putExtra("sms_body", str(kwargs.get('message')))
-        else:
-            intent.putExtra("sms_body", "")
-
+        recipient = kwargs.get('recipient')
+        address = recipient or ""
+        message = kwargs.get('message')
+        sms_body = message or ""
+        intent.putExtra("address", str(address))
+        intent.putExtra("sms_body", str(sms_body))
         activity.startActivity(intent)
 
 

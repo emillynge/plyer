@@ -15,7 +15,7 @@ class Sms(object):
         self._send(recipient=recipient, message=message)
 
     def edit(self, recipient=None, message=None):
-        self._send(recipient=recipient, message=message)
+        self._edit(recipient=recipient, message=message)
 
     # private
 
