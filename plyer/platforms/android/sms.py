@@ -29,6 +29,8 @@ class AndroidSms(Sms):
 
         if 'message' in kwargs:
             intent.putExtra("sms_body", str(kwargs.get('message')))
+        else:
+            intent.putExtra("sms_body", "")
 
         activity.startActivity(intent)
 
